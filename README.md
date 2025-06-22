@@ -1,3 +1,34 @@
+## Задание D2.4.1
+<details>
+  <summary><strong>Поднимите у себя локальный K8S-кластер с помощью Minikube.</strong></summary>
+
+        curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+        chmod +x minikube
+        sudo mv minikube /usr/local/bin/  
+</details>
+<details>
+  <summary><strong>В кластере должно быть всего пять нод, одна из них должна быть Сontrol Plane-нода</strong></summary>
+
+        minikube start --nodes=5 --driver=docker
+
+</details>
+<details>
+  <summary><strong>После того как ноды поднимутся, получите список всех нод в вашем локальном кластере</strong></summary>
+
+        kubectl get nodes
+
+</details>
+<details>
+  <summary><strong>Все команды и вывод результатов выполнения этих команд отправьте ментору на проверку</strong></summary>
+
+![Альтернативный текст](./img/img_1.png)
+
+![Альтернативный текст](./img/img_2.png)
+
+![Альтернативный текст](./img/img_3.png)
+</details>
+
+
 ## Установка Minikube
 <details>
   <summary><strong>Скачиваем</strong></summary>
@@ -33,6 +64,7 @@
   <summary><strong>Используя Docker-драйвер (рекомендуется) </strong></summary>
 
     minikube start --driver=docker
+    minikube start --nodes=5 --driver=docker
     💡 Предупреждение:
     ❗ /usr/local/bin/kubectl is version 1.29.2, which may have incompatibilities with Kubernetes 1.33.1.
     ▪ Want kubectl v1.33.1? Try 'minikube kubectl -- get pods -A'
@@ -96,6 +128,7 @@
   - **Если нужно полностью удалить кластер:**
 
         minikube delete
+        minikube delete --all
 
 </details>
 
