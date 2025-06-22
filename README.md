@@ -3,6 +3,7 @@
   <summary><strong>Скачиваем</strong></summary>
 
     curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+    curl -Lo minikube https://github.com/kubernetes/minikube/releases/latest/download/minikube-linux-amd64 
 </details>
 <details>
   <summary><strong>Делаем исполняемым</strong></summary>
