@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: sf-webserver
+spec:
+  selector:
+    app: nginx-sf
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80

@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-sf
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: nginx-sf
+  template:
+    metadata:
+      labels:
+        app: nginx-sf
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:1.21.1-alpine
+        ports:
+        - containerPort: 80
+        volumeMounts:
+        - name: config-volume
+          mountPath: /etc/nginx/nginx.conf
+          subPath: nginx.conf
+        - name: auth-secret
+          mountPath: /etc/nginx/auth
+          readOnly: true
+      volumes:
+      - name: config-volume
+        configMap:
+          name: nginx-conf
+      - name: auth-secret
+        secret:
+          secretName: auth-basic
+          items:
+            - key: auth
+              path: .htpasswd
+
